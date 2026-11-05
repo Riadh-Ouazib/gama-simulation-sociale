@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>M2 ANDROIDE : MOSIMA - TME 1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+.style2 {color: #609}
+.style3 {
+	color: #3F7AC3;
+}
+.style21 {	
+	font-weight: bold;
+   
+
+}
+    .esp-p {margin-top : 10px;
+    margin-bottom : 10px;
+} 
+    .code  {
+  background-color:#EEEEEE;
+ font : Courier New;
+}
+   h1 { font-weight: bold;
+        color: #0091C8;
+        margin-top : 20px;
+    margin-bottom : 20px;}
+    
+      h2 { font-weight: bold;
+        color: #0091C8;
+        margin-top : 50px;
+    margin-bottom : 20px;}
+    
+    
+    h3 { color: #609;
+        font-weight: bold;
+        margin-top : 30px;
+    margin-bottom : 20px;
+    }
+    
+p {
+ font-size:15pt;
+ }
+li {
+ font-size:15pt;
+ }
+ p.c {
+background:#dbe0ef;
+border-top:2px solid #aeb8de;
+border-bottom:2px solid #aeb8de;
+padding:1em 1em 1em 5em;
+}
+     img {
+  vertical-align:middle;
+}
+-->
+</style>
+</head>
+<body  text="#330000" style="margin-left:20pt"> 
+<h3 > 	<img src="LogoSU.png" width="100" height="50">
+&nbsp; &nbsp; &nbsp; Master d'Informatique Sp&eacute;cialit&eacute; <a href="http://androide.lip6.fr/">ANDROIDE</a> 
+  - Ann&eacute;e 2026-2027</h3>
+<h1 align="left" class="style2" ><img src="LogoMOSIMA.png" width="120" height="112" alt=""/>&nbsp; &nbsp; Mod&eacute;lisation et Simulation Multi-Agents </h1>
+
+<p>Responsable : <a href="mailto:Jean-Daniel.Kant@lip6.fr">Jean-Daniel Kant</a></p><p>
+
+<h1 >TME 2 - Simulations sociales</h1>
+
+
+
+<h2>1. Seggr&eacute;gation (mod&egrave;le de Schelling)</h2>
+<p>En prolongement du cours, l'objectif ici est de faire tourner le mod&egrave;le de Schelling et d'&eacute;tudier son comportement. Pour cela nous allons nous appuyer sur un tutorial GAMA, en faisant le tourner le modèle 1 (Schelling sur grille).</p>
+<ol class="esp-p">
+  <li class="esp-p">&nbsp;Lisez les <a href="Schelling/Tutorial-Schelling.pdf">slides</a> du tutorial, en particulier les pages 1-10 (modèle 1)</li>
+  <li class="esp-p">Cr&eacute;er un nouveau projet &quot;Schelling&quot; dans votre workspace et placez-y le fichier <a href="Schelling/SchellingGrid.gaml">SchellingGrid.gaml</a>. </li>
+  <p class="esp-p"><em>Remarque importante concernant la fonction <code>neighbors_at </code>   : la valeur retourn&eacute;e d&eacute;pend de la topologie qui l'utilise : </em></p>
+    <img src="neighbors_at.jpg" align="center" /> 
+    <a href="https://gama-platform.org/wiki/PredatorPrey_step3">source</a>
+    <p><em>Voilà pourquoi on doit d'abord passer par un agent house de type grid pour récupérer les voisins sur la grille, avant de récupérer ensuite les agents dans le voisinage grâce à <tt>accumulate</tt>. Rappel pour d&eacute;finir la type de voisinange dans une grille : <code>grid .... neighbors:  x</code>, avec x=4 pour  Von Neumann et x=8 pour Moore. </em></p>
+<li><span class="esp-p">Faites le tourner      
+    </span>
+    <ol>
+      <li class="esp-p">Que fait le mod&egrave;le ? Qu'observez-vous ?</li>
+      <li class="esp-p">&nbsp;Faites varier les paramètres, observez leurs effets et expliquez les</li>
+      <li class="esp-p">&nbsp;Trouver les combinaisons de paramètres qui donnent à l'équilibre 
+        <ol>
+          <li>  une ségrégation forte (pas de mélange, grandes zones uniformes)  </li>
+          <li>une ségrégation faible : beaucoup de mélange&nbsp;</li>
+        </ol>
+      </li>
+      <li class="esp-p">&nbsp;On cherche ici &agrave; reproduire la figure du transparent 23 du cours 2. Pour cela : calculer le tableau semblable au transparent 23 du cours 2 
+        <ol>
+          <li>Modifier le code pour afficher (monitor) le pourcentage moyen de <strong>similarit&eacute;</strong>, la similarit&eacute; &eacute;tant d&eacute;finie par le nombre d'agents de m&ecirc;me couleur dans le voisinage d'un agent</li>
+          <li>Faites varier le param&egrave;tre similar-wanted et noter dans un tableau le pourcentage moyen de similarit&eacute; &agrave; l'&eacute;quilibre. Que constatez-vous ?</li>
+        </ol>
+      </li>
+    </ol>
+</li>
+<li>On s'arr&ecirc;te l&agrave; pour cette partie! Vous trouverez (plus tard) sur le site du cours le code de la version avec GIS, vous pourrez l'explorer quand il vous plaira. Une autre version dans la Library <em>Models -&gt; Toy Models -&gt; Seggregation</em></li>
+</ol>
+    
+    <h2>2. Dynamique d'opinions</h2>
+<h3>Mod&egrave;le de base</h3>
+<p>Cette section porte sur  la mod&eacute;lisation de la dynamique d'opinions. Il s'agit d'&eacute;tudier &agrave; l'aide de NetLogo le mod&egrave;le, 
+dit BC (<em>Bounded Confidence</em>) d&eacute;crit dans le cours et dans cet article : <a href="BC/mixbel.pdf">mixbel.pdf</a> (Deffuant, G., Neau, D., Amblard, F. and Weisbuch, G., &quot;Mixing beliefs among interacting agents&quot;, Advances in Complex Systems, 3, 87-98, 2001).</p>
+<p>Il s'agit d'abord d'impl&eacute;menter le mod&egrave;le de base qui est d&eacute;crit au paragraphe 2.1 de l'article.</p>
+<p><span body="bold"><strong>2.1</strong></span> Ecrivez le programme GAMA de ce mod&egrave;le dans un nouveau projet et fichier <em>BC_Base.gaml.</em> Pour cela vous compl&eacute;terez le fichier <em><a href="BC/BC-GAMA/BC_Base_ETU.gaml">BC_Base_ETU.gaml</a></em> en ajoutant l'initalisation et le comportement des agents.<br>
+</p>
+<!--
+<p><strong>Correction : <a href="BC/BC-GAMA/BC_Base.gaml">BC_Base.gaml&nbsp;</a></strong></p>
+-->
+<p><strong>2.2</strong> Commencez par faire tourner l'exp&eacute;rience <em>BC_Base_Test </em>pour tester votre programme et v&eacute;rifier qu'il tourne avec peu d'agents (50). Variez les param&egrave;tres, le temps de simulation pour v&eacute;rifier la convergence &agrave; long terme, notez vos premi&egrave;res observations</p>
+<p><strong>2.3 </strong>Il s'agit maintenant de reproduire les r&eacute;sultats de l'article de Deffuant et al. Pour cela on utilise l'exp&eacute;rience <em>BC_Base_1000 </em>avec 1000 agents. </p>
+<p>2.3.1 Comparez vous r&eacute;sultats avec ceux des Figures 1 et 2. Les reproduisez-vous ? </p>
+<p>2.3.2 Quels sont les effets des changements de param&egrave;tres ? Expliquez les. </p>
+<p><strong>2.4</strong> Retrouvez-vous les r&eacute;sultats de la Figure 4 ? Commentez, expliquez</p>
+<h3>Effets des r&eacute;seaux sociaux </h3>
+<p>Dans la partie 3 de l'article, les auteurs introduisent la notion de voisinage social : plut&ocirc;t que de choisir au hasard les paires d'agents qui s'influencent, ils consid&egrave;rent pour un agent donn&eacute;, l'influence des agents qui se situent autour de lui, dans un voisinage donn&eacute;. On a alors un syst&egrave;me de type automate cellulaire et les auteurs partent d'un voisinage &agrave; 4 (N,S,E,W: voisinage dit de Von Neumann). </p>
+<p><strong>2.5 </strong>Dans un nouveau fichier (fichier <span class="style22">BC_Grid.gaml</span>), adaptez le programme pr&eacute;c&eacute;dent pour tenir compte de ces effets de voisinage. D&eacute;crivez comment vous l'avez con&ccedil;u, quels param&egrave;tres vous utilisez . On pourra s'inspirer du code pour Schelling avec grille : cr&eacute;ation de <span class="code">grid</span>, calcul du voisin avec le statemen <span class="code">at_distance</span> etc.</p>
+<p><strong>2.6</strong> Comparez vous r&eacute;sultats avec ceux des Figures 5 et 6 (Modifiez l'interface pour les reproduire). Les reproduisez-vous ? Quels sont les effets des vosinages sociaux ? Expliquez les. Faites varier les param&egrave;tres du mod&egrave;le : les effets sont-ils les m&ecirc;me qu'avec le mod&egrave;le de base ?</p>
+<h3>Extensions (si le temps le permet...)</h3>
+<p><strong>2.6</strong> <strong class="style2">influence des extr&eacute;mistes</strong>. Imaginons qu'un nombre NE d'extr&eacute;mistes cherchent &agrave; influencer la population (en envahissant la population par exemple). Dans notre mod&egrave;le BC cela peut se mod&eacute;liser en prenant NE agents extr&eacute;mistes dans la population, et en leur donnant une <strong>opinion constante </strong>(non influenc&eacute;e par les autres) <strong>et ext&ecirc;me : -1 ou 1.</strong></p>
+<p>2.6.1 Impl&eacute;mentez cela &agrave; partir mod&egrave;le BC_Grid. Faites tourner. Combien doit valoir NE pour avoir une influence sur la population ? </p>
+<p>2.6.2 Etudier le lien de NE avec les autres param&egrave;tres. </p>
+<p><strong>2.7</strong> R&eacute;flexions: Selon vous, uelles sont les limites de ce mod&egrave;le ? Quelles am&eacute;liorations apporteriez-vous en priorit&eacute; ?</p>
+<h2>Pour conclure : Limites du mod&egrave;le BC</h2>
+<p>Comme expliqu&eacute; en cours le mod&egrave;le BC est simple, ce qui est avantageux comme premi&egrave;re approche et programmation en GAMA, qui plus est dans un temps limit&eacute;. Mais il faut garder &agrave; l'esprit que c'est un mod&egrave;le tr&egrave;s peu r&eacute;aliste. Par exemple l'opinion d'un individu est un objet complexe, qui s'appuie - comme vu au cours 2 - sur des attitudes int&eacute;grant une composante cognitive, sociale et comportementale. Elle  ne peut donc pas se r&eacute;duire &agrave; un vecteur entre -1 et 1.</p>
+<p>Voil&agrave; pourquoi des mod&egrave;les plus descriptifs et cognitifs sont recommand&eacute;s, comme ceux pr&eacute;sent&eacute;s au cours 2.</p>
+
+</body>
+</html> 

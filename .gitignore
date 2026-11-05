@@ -1,0 +1,18 @@
+# sorties produites par GAMA quand on relance les experiences
+gama/**/models/*.csv
+gama/**/models/export/*.csv
+# fichiers intermediaires LaTeX
+rapport/*.aux
+rapport/*.log
+rapport/*.out
+rapport/*.toc
+rapport/*.synctex.gz
+rapport/*.fls
+rapport/*.fdb_latexmk
+rapport/*.xdv
+__pycache__/
+.DS_Store
+.venv/
+.tools/
+# ancien PDF à la racine ; la version publiée est rapport/rapport.pdf
+/rapport.pdf
